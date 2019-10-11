@@ -1,0 +1,7 @@
+[prod_ui]
+protocol = https
+server = nbai.io
+url = %(protocol)s://%(server)s/
+username = guoecho@hotmail.com
+password = nbai123
+browser = chrome
