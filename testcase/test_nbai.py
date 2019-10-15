@@ -1,18 +1,19 @@
-import unittest, time, sys
-
-sys.path.append("..")
-from util.publicmethod import PublicMethod
-from util.read_conf import ReadConfig
-from pages import nbai_page
-from util.config import env_info
+import unittest
+from selenium import webdriver
+from pages.nbai_page import TestNbaiPage
 
 
-class nbaitest(unittest.TestCase):
+class TestNbai(unittest.TestCase):
 
     def setUp(self):
-        # 实例化util下PublicMethod类
-        self.driver = PublicMethod(env_info['browser'])
-        self.driver.wd.implicitly_wait(30)
-        self.driver.max_window()
+        self.driver = webdriver.Chrome()
+        self.base_url = "https://nbai.io"
 
-    def test_01_click_login_button(self):
+    def tearDown(self):
+        self.driver.quit()
+
+    def test_click_login_item(self):
+        page = TestNbaiPage(Page)
+        page.get(self.base_url)
+
+
