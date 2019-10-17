@@ -1,5 +1,7 @@
+import time
 import unittest
-from util.HTML import HTMLStyle
+import util.HTMLTestRunner as HTMLTestRunner
+
 from testcase.test_dashboard import TestDashboard
 from testcase.test_gs2 import TestGs2
 from testcase.test_cns import TestCns
@@ -18,8 +20,9 @@ class TestSuite(unittest.TestCase):
         # runner = unittest.TextTestRunner()
         # runner.run(suites)
 
-        outfile = open("./testreport/TestReport.html", "w")
-        runner = HTMLStyle(
+        now = time.strftime("%Y-%m-%d_%H-%M", time.localtime())
+        outfile = open(now +"TestReport.html", "wb")
+        runner = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
             title='UI Test Report',
             description='Orion UI Tests'
