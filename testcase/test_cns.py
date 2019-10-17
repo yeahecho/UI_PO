@@ -15,14 +15,14 @@ class TestCns(MainCase):
     #     self.driver.quit()
 
     def test_cns(self):
-        url = "https://nbai.io"
-        TestLogin.test_Login(self, url)
+        TestLogin.test_Login(self)
         page = TestNbaiPage(self.driver)
         # page.get(url)
         # page.login_item.click()
         # page.username = "guoecho@hotmail.com"
         # page.password = "nbai123"
         # page.login_btn.click()
+        sleep(3)
         page.cns.click()
         self.assertEqual((re.search(r'container', self.driver.current_url, re.M | re.I)).group(), "container")
         print((re.search(r'container', self.driver.current_url, re.M | re.I)).group())

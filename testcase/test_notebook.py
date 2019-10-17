@@ -23,8 +23,8 @@ class TestNotebook(MainCase):
         for handle in handles:
             if handle != self.driver.current_window_handle:
                 print("switch to", handle)
-                self.driver.switch_to_window(handle)
+                self.driver.switch_to.window(handle)
                 break
         # self.driver.close()
-        # self.driver.switch_to_window(handles[0])
+        # self.driver.switch_to.window(handles[1])
         self.assertEqual((re.search(r'notebook', self.driver.current_url, re.M | re.I)).group(), "notebook")

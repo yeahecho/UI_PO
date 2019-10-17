@@ -8,7 +8,6 @@ from time import sleep
 class TestGs2(MainCase):
 
     def test_gs2(self):
-        url = "https://nbai.io"
         TestLogin.test_Login(self)
         page = TestNbaiPage(self.driver)
         # page.get(self.url)

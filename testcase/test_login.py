@@ -8,13 +8,6 @@ from time import sleep
 
 class TestLogin(MainCase):
 
-    # def setUp(self):
-    #     self.driver = webdriver.Chrome()
-    #     self.url = "https://nbai.io"
-    #
-    # def tearDown(self):
-    #     self.driver.quit()
-
     def test_Login(self):
         url = "https://nbai.io"
         page = TestNbaiPage(self.driver)
