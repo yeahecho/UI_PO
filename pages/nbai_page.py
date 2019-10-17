@@ -1,7 +1,6 @@
 from poium import Page, PageElement, PageElements
 from time import sleep
 from selenium import webdriver
-import unittest
 
 
 class TestNbaiPage(Page):
@@ -16,6 +15,7 @@ class TestNbaiPage(Page):
     gs2 = PageElement(xpath='//*[@id="m_ver_menu"]/ul/li[3]/a', describe="GS2")
     gs2_refresh = PageElement(css="div.modal-header>i")
     gs2_prompt = PageElement(class_name="close", describe="关闭gs2弹出框")
+    # gs2_prompt = PageElement(css="div.document>div.modal-content>div.modal-header>button", describe="关闭gs2弹出框")
     gs2_prompt_dismiss = PageElement(
         xpath='/html/body/ngb-modal-window[2]/div/div/ngbd-modal-close-confirm/div[2]/button[1]', describe="确定关闭gs2弹出框")
 
@@ -33,7 +33,9 @@ class TestNbaiPage(Page):
     myprofile_refferal = PageElement(
         xpath='//*[@id="fb-root"]/div[2]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/ul/li[5]/a')
 
-    def test_login(self, url):
+
+
+    def test_login(self):
         page = TestNbaiPage(browser)
         page.get(url)
         page.login_item.click()
@@ -52,6 +54,7 @@ class TestNbaiPage(Page):
 
         page.gs2.click()
         page.gs2_refresh.click()
+        sleep(5)
         page.gs2_prompt.click()
         sleep(3)
         page.gs2_prompt_dismiss.click()
@@ -71,9 +74,10 @@ class TestNbaiPage(Page):
         sleep(1)
         page.myprofile_refferal.click()
 
-        browser.quit()
 
 
 if __name__ == '__main__':
-    browser = webdriver.Chrome()
-    TestNbaiPage.test_login(browser)
+    browser = webdriver.Chrome("C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe")
+    url = "https://nbai.io"
+    TestNbaiPage.test_login(url)
+
