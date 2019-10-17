@@ -14,8 +14,9 @@ class TestNbaiPage(Page):
     notebook = PageElement(xpath='//*[@id="m_ver_menu"]/ul/li[2]/a', describe="notebook")
     gs2 = PageElement(xpath='//*[@id="m_ver_menu"]/ul/li[3]/a', describe="GS2")
     gs2_refresh = PageElement(css="div.modal-header>i")
-    gs2_prompt = PageElement(class_name="close", describe="关闭gs2弹出框")
+    # gs2_prompt = PageElement(class_name="close", describe="关闭gs2弹出框")
     # gs2_prompt = PageElement(css="div.document>div.modal-content>div.modal-header>button", describe="关闭gs2弹出框")
+    gs2_prompt = PageElements(class_name="close", describe="关闭gs2弹出框")
     gs2_prompt_dismiss = PageElement(
         xpath='/html/body/ngb-modal-window[2]/div/div/ngbd-modal-close-confirm/div[2]/button[1]', describe="确定关闭gs2弹出框")
 
@@ -79,5 +80,5 @@ class TestNbaiPage(Page):
 if __name__ == '__main__':
     browser = webdriver.Chrome("C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe")
     url = "https://nbai.io"
-    TestNbaiPage.test_login(url)
+    TestNbaiPage.test_login()
 

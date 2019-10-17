@@ -9,7 +9,7 @@ class TestGs2(MainCase):
 
     def test_gs2(self):
         url = "https://nbai.io"
-        TestLogin.test_Login(self,url)
+        TestLogin.test_Login(self)
         page = TestNbaiPage(self.driver)
         # page.get(self.url)
         # page.login_item.click()
@@ -19,7 +19,8 @@ class TestGs2(MainCase):
         page.gs2.click()
         page.gs2_refresh.click()
         sleep(5)
-        page.gs2_prompt.click()
+        print(page.gs2_prompt[2])
+        page.gs2_prompt[2].click()
         sleep(8)
         page.gs2_prompt_dismiss.click()
 

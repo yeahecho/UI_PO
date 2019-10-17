@@ -8,7 +8,7 @@ class TestDashboard(MainCase):
 
     def test_dashboard(self):
         url = "https://nbai.io"
-        TestLogin.test_Login(self,url)
+        TestLogin.test_Login(self)
         page = TestNbaiPage(self.driver)
         # page.side_bar_btn.click()
         # sleep(1)

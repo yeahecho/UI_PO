@@ -1,5 +1,6 @@
 from selenium import webdriver
 import unittest
+import platform
 
 
 class MainCase(unittest.TestCase):
@@ -12,8 +13,11 @@ class MainCase(unittest.TestCase):
         # 用隐身窗口
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--incognito")
-        self.driver = webdriver.Chrome("C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe",
-                                       options=chrome_options)
+        current_sys = platform.system()
+        # self.driver = webdriver.Chrome("C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe", options=chrome_options)
+
+        self.driver = webdriver.Chrome()
+
         # 非隐身窗口
         # self.driver = webdriver.Chrome("C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe")
         self.driver.get("https://nbai.io")
